@@ -1,0 +1,32 @@
+nav {
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    ul {
+        margin: 0 80px 0 0;
+        padding-left: 0;
+
+        li {
+            display: inline-block;
+            padding: 0 25px;
+        }
+    }
+}
+
+.hamburger-menu {
+    z-index: 1;
+    font-size: 2em;
+    margin-right: 30px;
+    display: none;
+}
+
+.menu.show {
+    transform: translateX(0);
+}
+
+.is-active {
+    color: material-color('green');
+}
