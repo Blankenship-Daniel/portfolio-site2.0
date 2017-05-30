@@ -16,7 +16,34 @@ $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width 
 $dropdown-menu-width: 250px;
 
 @media #{$small-and-down} {
-    // styles for small screens and down
+  // styles for small screens and down
+  h1 {
+    font-size: 2em;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  .container {
+    margin: 0 auto;
+  }
+
+  .title-wrapper {
+    margin-top: 0px;
+  }
+
+  .title {
+    font-size: 80px;
+  }
+
+  .sub-title {
+    font-size: 40px;
+  }
+
+  .whoami, .featured-projects {
+    min-height: 500px;
+  }
 }
 @media #{$medium-and-up} {
   // styles for medium screens and larger
@@ -24,35 +51,65 @@ $dropdown-menu-width: 250px;
 @media #{$medium-and-down} {
   // styles for medium screens and down
   nav {
-    ul {
-        margin-top: 100px;
+    .logo {
+      margin-left: 30px;
+    }
 
-        li {
-            margin: 40px 0;
-            display: block;
-        }
+    ul {
+      margin-top: 100px;
+
+      li {
+        margin: 40px 0;
+        display: block;
+      }
     }
   }
 
   .hamburger-menu {
-      z-index: 2;
-      display: block;
+    z-index: 2;
+    display: block;
   }
 
   .menu {
-      transition: transform .3s;
-      transform: translateX($dropdown-menu-width);
-      z-index: 1;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: $dropdown-menu-width;
-      height: 100%;
-      will-change: transform;
-      background: material-color('grey', '100');
-      -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.4);
-      -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.4);
-      box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.4);
+    transition: transform .3s;
+    transform: translateX($dropdown-menu-width);
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: $dropdown-menu-width;
+    height: 100%;
+    will-change: transform;
+    background: material-color('grey', '100');
+    @include box-shadow(0px 0px 3px 0px rgba(0,0,0,0.4));
+  }
+
+  .flex-grid {
+    display: block;
+
+    .col {
+      width: 100%;
+    }
+  }
+
+  .featured-projects {
+    .flex-grid .col {
+      margin: 0;
+    }
+
+    .featured-image {
+      height: 300px;
+    }
+  }
+
+  .contact-me {
+    .flex-grid {
+      display: flex;
+
+      .col {
+        flex: 1;
+      }
+    }
   }
 }
 @media #{$large-and-up} {

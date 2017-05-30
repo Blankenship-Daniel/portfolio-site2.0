@@ -1,0 +1,65 @@
+<div class="container">
+  <form novalidate [formGroup]="blogForm" (ngModel)="blogForm" (ngSubmit)="postToBlog(blogForm)">
+    <fieldset>
+      <label for="blogTitle">Blog Title</label>
+      <input
+        [ngClass]="{'error': !blogForm.controls['blogTitle'].valid && blogForm.controls['blogTitle'].touched}"
+        [formControl]="blogForm.controls['blogTitle']"
+        formControlName="blogTitle"
+        required
+        type="text"
+        name="blogTitle"
+        value="">
+    </fieldset>
+    <fieldset>
+      <label for="blogPost">Blog Post</label>
+      <textarea
+        [ngClass]="{'error': !blogForm.controls['blogPost'].valid && blogForm.controls['blogPost'].touched}"
+        [formControl]="blogForm.controls['blogPost']"
+        formControlName="blogPost"
+        required
+        name="blogPost">
+      </textarea>
+    </fieldset>
+    <fieldset>
+      <button type="submit">Submit Blog Post</button>
+    </fieldset>
+  </form>
+  <form novalidate [formGroup]="projectForm" (ngModel)="projectForm" (ngSubmit)="postToPortfolio(projectForm)">
+    <fieldset>
+      <label for="projectTitle">Project Title</label>
+      <input
+        [ngClass]="{'error': !projectForm.controls['projectTitle'].valid && projectForm.controls['projectTitle'].touched}"
+        [formControl]="projectForm.controls['projectTitle']"
+        formControlName="projectTitle"
+        required
+        type="text"
+        name="projectTitle"
+        value="">
+    </fieldset>
+    <fieldset>
+      <label for="projectImage">Project Image</label>
+      <input
+        [ngClass]="{'error': !projectForm.controls['projectImage'].valid && projectForm.controls['projectImage'].touched}"
+        [formControl]="projectForm.controls['projectImage']"
+        formControlName="projectImage"
+        required
+        type="text"
+        name="projectImage"
+        value="">
+    </fieldset>
+    <fieldset>
+      <label for="projectPost">Project Post</label>
+      <textarea
+        [ngClass]="{'error': !projectForm.controls['projectPost'].valid && projectForm.controls['projectPost'].touched}"
+        [formControl]="projectForm.controls['projectPost']"
+        formControlName="projectPost"
+        required
+        name="projectPost">
+      </textarea>
+    </fieldset>
+    <fieldset>
+      <button type="submit">Submit Project Post</button>
+    </fieldset>
+  </form>
+</div>

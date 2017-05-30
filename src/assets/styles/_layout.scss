@@ -1,0 +1,152 @@
+.container {
+  max-width: 800px;
+  min-height: 100%;
+  margin: 100px auto;
+  padding: 0 45px;
+}
+
+.title-wrapper {
+  margin-top: 150px;
+}
+
+.title {
+  font-size: 90px;
+  margin: 10px 0;
+}
+
+.sub-title {
+  font-size: 45px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  color: material-color('grey', '700');
+}
+
+.whoami {
+  @extend .container;
+  min-height: 600px;
+}
+
+.about-me-container {
+  background: material-color('grey');
+
+  .about-me {
+    @extend .container;
+    min-height: 400px;
+    display: inline-block;
+  }
+}
+
+.highlight {
+  padding: 20px;
+}
+
+.contact-me {
+  height: 70px;
+  color: material-color('grey', '100');
+  background: material-color('grey', '800');
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  @include box-shadow(-1px -1px 15px -4px rgba(0,0,0,0.75));
+
+  .flex-grid {
+    width: 100%;
+  }
+}
+
+.featured-projects {
+  .flex-grid {
+    min-height: 500px;
+    @include box-shadow(0px 1px 13px -2px rgba(0,0,0,0.75));
+  }
+
+  .featured-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 600px;
+
+    img {
+      width: 50%;
+    }
+  }
+}
+
+.project-item, .blog-post {
+  margin-bottom: 100px;
+}
+
+.project-image {
+  margin: 70px auto;
+  width: 50%;
+  display: block;
+}
+
+.project-link {
+  font-weight: bold;
+  color: material-color('green');
+}
+
+.flex-grid {
+  display: flex;
+
+  .col {
+    flex: 1;
+  }
+}
+
+.blog-navigation {
+  display: none;
+  min-height: 200px;
+  clear: both;
+
+  a {
+    color: material-color('green');
+    font-weight: bold;
+  }
+
+  .prev {
+    float: left;
+  }
+
+  .next {
+    float: right;
+  }
+}
+
+.prev, .next {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.f1 {
+  background: material-color('blue');
+  transition: .3s ease-in background;
+
+  &:hover {
+    background: darken(material-color('blue'), 10%);
+  }
+}
+
+.f2 {
+  background: material-color('grey', '100');
+  transition: .3s ease-in background;
+
+  &:hover {
+    background: darken(material-color('grey', '100'), 10%);
+  }
+}
+
+.f3 {
+  background: material-color('grey', '50');
+  transition: .3s ease-in background;
+
+  &:hover {
+    background: darken(material-color('grey', '50'), 10%);
+  }
+}

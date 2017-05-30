@@ -1,8 +1,45 @@
-<div class="title-wrapper">
-    <h1 class="title">Hi, I'm Daniel.</h1>
-    <h1 class="sub-title">I code the web.</h1>
-    <hr>
+<div class="whoami">
+  <div class="title-wrapper">
+      <h1 class="title">Hi, I'm Daniel.</h1>
+      <h1 class="sub-title">I code the web.</h1>
+      <hr>
+  </div>
+  <div class="mission-statement">
+      <p>"Whenever I'm about to do something, I think, 'Would an idiot do that?' And if they would, I do not do that thing." <sub>-Dwight Schrute</sub></p>
+  </div>
 </div>
-<div class="mission-statement">
-    <p>"Whenever I'm about to do something, I think, 'Would an idiot do that?' And if they would, I do not do that thing." <sub>-Dwight Schrute</sub></p>
+<div *ngIf="featured.length" class="featured-projects">
+  <div class="flex-grid">
+    <div class="col">
+      <a target="_blank" [href]="featured[0].url">
+        <div class="featured-image f1">
+          <img [src]="sanitizeImage(featured[0].image)" alt="">
+        </div>
+      </a>
+    </div>
+    <div class="col">
+      <a target="_blank" [href]="featured[1].url">
+        <div class="featured-image f2">
+          <img [src]="sanitizeImage(featured[1].image)" alt="">
+        </div>
+      </a>
+    </div>
+    <div class="col">
+      <a target="_blank" [href]="featured[2].url">
+        <div class="featured-image f3">
+          <img [src]="sanitizeImage(featured[2].image)" alt="">
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="contact-me">
+  <div class="flex-grid">
+    <div class="col">
+      <a target="_blank" href="https://github.com/Blankenship-Daniel"><i class="fa fa-github"></i></a>
+    </div>
+    <div class="col">
+      <a target="_blank" href="https://www.linkedin.com/in/danieljblankenship/"><i class="fa fa-linkedin-square"></i></a>
+    </div>
+  </div>
 </div>

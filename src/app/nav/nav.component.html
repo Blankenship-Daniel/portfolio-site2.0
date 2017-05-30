@@ -1,11 +1,12 @@
 <nav>
-    <div [ngClass]="{'show': visible}" class="menu">
-        <ul>
-            <li><a routerLink="work" [routerLinkActive]="['is-active']">Work</a></li>
-            <li><a routerLink="about" [routerLinkActive]="['is-active']">About</a></li>
-            <li><a routerLink="contact" [routerLinkActive]="['is-active']">Contact</a></li>
-            <li><a routerLink="blog" [routerLinkActive]="['is-active']">Blog</a></li>
-        </ul>
-    </div>
-    <a (click)="visible = !visible" class="hamburger-menu"><i class="fa fa-bars"></i></a>
+  <div class="logo">
+    <h3><a routerLink="/">Blankenship</a></h3>
+  </div>
+  <div [ngClass]="{'show': visible}" class="menu">
+      <ul>
+          <li><a routerLink="/portfolio" [routerLinkActive]="['is-active']">Portfolio</a></li>
+          <li><a routerLink="/blog" [routerLinkActive]="['is-active']">Blog</a></li>
+      </ul>
+  </div>
+  <a (click)="visible = !visible" class="hamburger-menu"><i class="fa fa-bars"></i></a>
 </nav>

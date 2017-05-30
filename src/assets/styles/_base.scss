@@ -1,51 +1,61 @@
 html {
-    height: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto Mono', monospace;
-    color: material-color('grey', '700');
-    height: 100%;
-    padding: 1px;
-    font-size: 16px;
+  font-family: 'Roboto Mono', monospace;
+  color: material-color('grey', '700');
+  height: 100%;
+  padding: 1px;
+  font-size: 16px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lato', sans-serif;
-    color: material-color('grey', '900');
+  font-family: 'Lato', sans-serif;
+  color: material-color('grey', '800');
+}
+
+h1 {
+  font-size: 3em;
 }
 
 hr {
-    border: 0;
-    height: 0;
-    border-top: 1px solid material-color('grey', '200');
+  border: 0;
+  height: 0;
+  border-top: 1px solid material-color('grey', '200');
+  margin-bottom: 50px;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
-    transition: .2s ease-in color;
+  color: inherit;
+  text-decoration: none;
+  transition: .2s ease-in color;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.container {
-    max-width: 800px;
-    min-height: 100%;
-    margin: 0 auto;
-    padding: 0 45px;
+input, textarea, label {
+  margin: 1em;
+  display: block;
 }
 
-.title-wrapper {
-    margin-top: 150px;
+input, textarea {
+  width: 80%;
 }
 
-.title {
-    font-size: 90px;
-    margin: 10px 0;
+button {
+  margin: 1em;
+  padding: 1em;
+  border: none;
+  background: material-color('blue');
+  color: material-color('grey', '100');
+  text-align: center;
+  min-width: 100px;
 }
 
-.sub-title {
-    font-size: 45px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    color: material-color('grey', '700');
+fieldset {
+  border: none;
 }

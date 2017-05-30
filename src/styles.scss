@@ -1,5 +1,7 @@
 @import '../node_modules/sass-material-colors/sass/sass-material-colors';
 @import '../node_modules/normalize.scss/normalize';
+@import 'assets/styles/mixins';
 @import 'assets/styles/base';
+@import 'assets/styles/layout';
 @import 'assets/styles/nav';
 @import 'assets/styles/media-queries';

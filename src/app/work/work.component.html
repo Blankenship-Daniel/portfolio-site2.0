@@ -1,3 +1,11 @@
-<p>
-  work works!
-</p>
+<div class="container">
+  <div class="project-item" *ngFor="let project of projects | async">
+    <h1><a target="_blank" [href]="project.url">{{ project.title }}</a></h1>
+    <hr>
+    <a target="_blank" [href]="project.url">
+      <img class="project-image" [src]="sanitizeImage(project.image)">
+    </a>
+    <div [innerHTML]="project.post"></div>
+    <p><a class="project-link" target="_blank" [href]="project.url">Visit Site</a></p>
+  </div>
+</div>
