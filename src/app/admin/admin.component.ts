@@ -15,6 +15,24 @@ export class AdminComponent implements OnInit {
   private projects: FirebaseListObservable<any[]>;
 
   constructor(db: AngularFireDatabase) {
+    this.getLastPostId(db); 
+    this.posts = db.list('posts');
+    this.projects = db.list('projects');
+    this.blogForm = new FormGroup({
+      blogTitle: new FormControl('', Validators.required),
+      blogPost: new FormControl('', Validators.required)
+    });
+    this.projectForm = new FormGroup({
+      projectTitle: new FormControl('', Validators.required),
+      projectImage: new FormControl('', Validators.required),
+      projectPost: new FormControl('', Validators.required)
+    });
+  }
+
+  ngOnInit() {
+  }
+
+  getLastPostId(db: AngularFireDatabase) {
     // Grab the last id from the db.
     db.list('posts', {
       query: {
@@ -31,21 +49,6 @@ export class AdminComponent implements OnInit {
         console.log(err);
       }
     );
-
-    this.posts = db.list('posts');
-    this.projects = db.list('projects');
-    this.blogForm = new FormGroup({
-      blogTitle: new FormControl('', Validators.required),
-      blogPost: new FormControl('', Validators.required)
-    });
-    this.projectForm = new FormGroup({
-      projectTitle: new FormControl('', Validators.required),
-      projectImage: new FormControl('', Validators.required),
-      projectPost: new FormControl('', Validators.required)
-    });
-  }
-
-  ngOnInit() {
   }
 
   postToBlog(form: any) {

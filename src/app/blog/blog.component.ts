@@ -22,53 +22,16 @@ export class BlogComponent implements OnInit {
     private highlightService: HighlightJsService,
     private route: ActivatedRoute
   ) {
-    let slug = route.snapshot.params['slug'];
+    let slug: string = route.snapshot.params['slug'];
     route.queryParams.subscribe(
       params => {
         this.offset = params['start'] !== undefined ? params['start'] : 0;
         if (slug !== undefined) {
-          this.showOlderPosts = false;
-          this.posts = db.list('posts', {
-            query: {
-              orderByChild: 'slug',
-              limitToFirst: 1,
-              equalTo: slug
-            }
-          });
+          this.loadSinglePost(db, slug);
         }
         else {
-          this.posts = db.list('posts', {
-            query: {
-              orderByChild: 'id',
-              startAt: {
-                key: 'id',
-                value: Number(this.offset)
-              },
-              limitToFirst: Number(this.offsetAmount)
-            }
-          });
-
-          // Load the next set of posts to see if there are older posts to load.
-          db.list('posts', {
-            query: {
-              orderByChild: 'id',
-              startAt: {
-                key: 'id',
-                value: Number(this.offset) + Number(this.offsetAmount)
-              },
-              limitToFirst: Number(this.offsetAmount)
-            }
-          }).subscribe(
-            posts => {
-              this.showBlogNav = true;
-              if (posts.length === 0) {
-                this.showOlderPosts = false;
-              }
-            },
-            err => {
-              console.log(err);
-            }
-          );
+          this.loadPosts(db);
+          this.loadNextPosts(db);
         }
       },
       err => {
@@ -91,5 +54,55 @@ export class BlogComponent implements OnInit {
 
   nextPage() {
     return '/blog?start=' + (Number(this.offset) + Number(this.offsetAmount));
+  }
+
+  loadSinglePost(db: AngularFireDatabase, slug: string) {
+    this.showOlderPosts = false;
+    this.posts = db.list('posts', {
+      query: {
+        orderByChild: 'slug',
+        limitToFirst: 1,
+        equalTo: slug
+      }
+    });
+  }
+
+  loadPosts(db: AngularFireDatabase) {
+    this.posts = db.list('posts', {
+      query: {
+        orderByChild: 'id',
+        startAt: {
+          key: 'id',
+          value: Number(this.offset)
+        },
+        limitToFirst: Number(this.offsetAmount)
+      }
+    });
+  }
+
+  loadNextPosts(db: AngularFireDatabase) {
+    // Load the next set of posts to see if there are older posts to load. This
+    //  allows us to know when to show and hide the `Older Posts` link in the
+    //  nav.
+    db.list('posts', {
+      query: {
+        orderByChild: 'id',
+        startAt: {
+          key: 'id',
+          value: Number(this.offset) + Number(this.offsetAmount)
+        },
+        limitToFirst: Number(this.offsetAmount)
+      }
+    }).subscribe(
+      posts => {
+        this.showBlogNav = true;
+        if (posts.length === 0) {
+          this.showOlderPosts = false;
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }
