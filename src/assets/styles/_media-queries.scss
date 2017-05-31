@@ -102,13 +102,21 @@ $dropdown-menu-width: 250px;
     }
   }
 
-  .contact-me {
+  .contact-me, footer {
     .flex-grid {
       display: flex;
 
       .col {
         flex: 1;
       }
+    }
+  }
+
+  footer {
+    margin-top: 100px;
+
+    .footer-content {
+      width: 100%;
     }
   }
 }

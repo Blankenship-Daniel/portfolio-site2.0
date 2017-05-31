@@ -16,8 +16,8 @@
 
 .sub-title {
   font-size: 45px;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  margin-top: -15px;
+  margin-bottom: 45px;
   color: material-color('grey', '700');
 }
 
@@ -53,8 +53,10 @@
 }
 
 .featured-projects {
+  $featured-height: 500px;
+
   .flex-grid {
-    min-height: 500px;
+    min-height: $featured-height;
     @include box-shadow(0px 1px 13px -2px rgba(0,0,0,0.75));
   }
 
@@ -63,7 +65,7 @@
     align-items: center;
     justify-content: center;
 
-    height: 600px;
+    height: $featured-height;
 
     img {
       width: 50%;
@@ -145,5 +147,45 @@
 
   &:hover {
     background: darken(material-color('grey', '50'), 10%);
+  }
+}
+
+footer {
+  line-height: 1em;
+  font-size: .9em;
+  margin-top: 200px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: material-color('grey', '600');
+
+  .footer-content {
+    $footer-logo-margin: 20px;
+
+    text-align: center;
+    width: 900px;
+
+    .github-logo, .linkedin-logo {
+      font-size: 2.8em;
+      display: flex;
+      align-items: center;
+    }
+
+    .github-logo {
+      justify-content: flex-end;
+
+      a {
+        margin-right: $footer-logo-margin;
+      }
+    }
+
+    .linkedin-logo {
+      justify-content: flex-start;
+
+      a {
+        margin-left: $footer-logo-margin;
+      }
+    }
   }
 }

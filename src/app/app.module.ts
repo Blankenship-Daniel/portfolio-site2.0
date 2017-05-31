@@ -16,6 +16,7 @@ import { NavComponent } from './nav/nav.component';
 import { BlogComponent } from './blog/blog.component';
 import { WorkComponent } from './work/work.component';
 import { AdminComponent } from './admin/admin.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AdminComponent } from './admin/admin.component';
     NavComponent,
     BlogComponent,
     WorkComponent,
-    AdminComponent
+    AdminComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
