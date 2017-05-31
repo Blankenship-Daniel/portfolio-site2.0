@@ -49,6 +49,17 @@
         value="">
     </fieldset>
     <fieldset>
+      <label for="projectUrl">Project Url</label>
+      <input
+        [ngClass]="{'error': !projectForm.controls['projectUrl'].valid && projectForm.controls['projectUrl'].touched}"
+        [formControl]="projectForm.controls['projectUrl']"
+        formControlName="projectUrl"
+        required
+        type="text"
+        name="projectUrl"
+        value="">
+    </fieldset>
+    <fieldset>
       <label for="projectPost">Project Post</label>
       <textarea
         [ngClass]="{'error': !projectForm.controls['projectPost'].valid && projectForm.controls['projectPost'].touched}"

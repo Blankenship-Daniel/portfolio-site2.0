@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-
   private posts: FirebaseListObservable<any[]>;
   private nextPosts: FirebaseListObservable<any[]>;
   private offset: number = 0;

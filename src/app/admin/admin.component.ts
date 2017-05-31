@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
   private projects: FirebaseListObservable<any[]>;
 
   constructor(db: AngularFireDatabase) {
-    this.getLastPostId(db); 
+    this.getLastPostId(db);
     this.posts = db.list('posts');
     this.projects = db.list('projects');
     this.blogForm = new FormGroup({
@@ -25,7 +25,8 @@ export class AdminComponent implements OnInit {
     this.projectForm = new FormGroup({
       projectTitle: new FormControl('', Validators.required),
       projectImage: new FormControl('', Validators.required),
-      projectPost: new FormControl('', Validators.required)
+      projectPost: new FormControl('', Validators.required),
+      projectUrl: new FormControl('', Validators.required)
     });
   }
 
@@ -69,6 +70,7 @@ export class AdminComponent implements OnInit {
     if (form.valid) {
       let f: any = form.value;
       let project: any = {
+        url: f.projectUrl,
         title: f.projectTitle,
         image: f.projectImage,
         post: f.projectPost,
