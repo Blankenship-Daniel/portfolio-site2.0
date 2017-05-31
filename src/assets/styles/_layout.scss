@@ -41,14 +41,11 @@
 }
 
 .contact-me {
-  height: 70px;
-  color: material-color('grey', '100');
-  background: material-color('grey', '800');
-  font-size: 1.5em;
+  height: 300px;
+  font-size: 3em;
   display: flex;
   align-items: center;
   text-align: center;
-  @include box-shadow(-1px -1px 15px -4px rgba(0,0,0,0.75));
 
   .flex-grid {
     width: 100%;
